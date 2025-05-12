@@ -37,7 +37,7 @@ public class ClienteService {
     }
 
     public Optional<Cliente> pegarCPF(String cpf) {
-
+        cpf = cpf.trim().replaceAll("\\D", "");
         return repository
                 .buscarCPF(cpf)
                 .map(ClienteMapper::toCliente);
